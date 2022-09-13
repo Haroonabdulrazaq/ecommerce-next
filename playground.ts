@@ -5,6 +5,7 @@ type Person = {
   name: string
   age?: number
 }
+
 interface PersonLoggerFn{
   (name: string, age: number): string
 } 
@@ -32,4 +33,16 @@ function logPersonInfo2(person: Person){
 
   logPersonInfo2(person)
   logPersonInfo(name, age)
+}
+
+type Car ={
+  name: string,
+}& {speed: number
+}
+
+function race(){
+  const car: Car ={
+    name: "my car",
+    speed: 100
+  }
 }
