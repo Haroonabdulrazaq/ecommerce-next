@@ -1,7 +1,7 @@
 // TS recommend use interfaces over Types when possible
 // interfaces describe object in a more natural way
 //Types allows aliases 
-type Person = {
+type Person= {
   name: string
   age?: number
 }
@@ -35,14 +35,45 @@ function logPersonInfo2(person: Person){
   logPersonInfo(name, age)
 }
 
-type Car ={
-  name: string,
-}& {speed: number
+// interface Person extends AcademicPerson {
+//   name: string,
+//   age: number
+// }
+
+interface AcademicPerson extends Person {
+  publications: string[]
 }
+
+type Car ={
+  name: string
+}& RaceCar
+
+type RaceCar ={
+  speed: number
+} & AcademicPerson & {millage: number}
 
 function race(){
   const car: Car ={
     name: "my car",
-    speed: 100
+    speed: 100,
+    publications: [""],
+    age: 20,
+    millage: 100
   }
+}
+
+//Union
+type RacCar ={
+  maxSpeed: 500
+  type: string
+}
+
+type CityCar ={
+  type: string
+  space: number
+  plateNumber: number
+}
+
+function logCarInfo(car: CityCar | RacCar){
+  console.log(car.type)
 }
