@@ -33,7 +33,13 @@ To run lint in this project( which comes preconfigured with nextjs template) `np
 - Add globals configuration to declare React in all file so we dont have to repeat it in all components
 - Add rules, this is the part where we declare our eslint rule
 
+Lastly run `npm run lint` to check for linting errors.
 
 # STEP 4: CONFIGURING PRETTIER
 
+You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, doubleQuote check [pretteir docs](https://prettier.io/docs/en/options.html) form more options
 
+- Add `.prettierrc` file in your root project directory and options base on your preferrence.
+- Add `.prettierignore` file in your root project directory to ignore those file you dont want prettier to format; example node_modules, /dist folder. etc.
+
+Lastly, run `npm run prettier` or `yarn prettier` to format your project
