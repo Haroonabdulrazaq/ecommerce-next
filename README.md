@@ -23,7 +23,6 @@ STEP 1: SETTING UP ENVIRONMENT
 - Add the changes to local git `git add .`
 - Make a commit to local git with a custom commit message `git commit -m 'commit message' .`
 - Push this changes to github(while making the "main branch" the default push branch ) `git push -u origin main`
--
 
 # STEP 3: ESLINT CONFIGURATION
 
@@ -37,9 +36,15 @@ Lastly run `npm run lint` to check for linting errors.
 
 # STEP 4: CONFIGURING PRETTIER
 
-You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, doubleQuote check [pretteir docs](https://prettier.io/docs/en/options.html) form more options
+You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, doubleQuotes check [pretteir docs](https://prettier.io/docs/en/options.html) for more options
 
 - Add `.prettierrc` file in your root project directory and options base on your preferrence.
-- Add `.prettierignore` file in your root project directory to ignore those file you dont want prettier to format; example node_modules, /dist folder. etc.
+- Add `.prettierignore` file in your root project directory to ignore those file you don't want prettier to format; example node_modules, /dist folder. etc.
 
 Lastly, run `npm run prettier` or `yarn prettier` to format your project
+
+# STEP 5: GIT HOOKS
+
+To enforce code quality standard and ensure developer are commiting and pushing the right code into the remote repository, you might want to set up `Git Hooks`.
+
+Git hooks when set up correctly, will run some script that most succeed before it makes a successfull push to the remote repository
