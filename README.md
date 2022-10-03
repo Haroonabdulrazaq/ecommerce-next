@@ -36,7 +36,7 @@ Lastly run `npm run lint` to check for linting errors.
 
 # STEP 4: CONFIGURING PRETTIER
 
-You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, doubleQuotes check [pretteir docs](https://prettier.io/docs/en/options.html) for more options
+You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, semiColon(Option), trailingComma, singleQuotes/doubleQuotes check [pretteir docs](https://prettier.io/docs/en/options.html) for more options
 
 - Add `.prettierrc` file in your root project directory and options base on your preferrence.
 - Add `.prettierignore` file in your root project directory to ignore those file you don't want prettier to format; example node_modules, /dist folder. etc.
