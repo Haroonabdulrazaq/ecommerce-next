@@ -65,7 +65,6 @@ Git hooks when set up correctly, will run some script that most succeed before i
    "start": "next start",
    "lint": "next lint",
    "prettier": "prettier --write .",
-   "pre-commit": "lint-staged",
    "prepare": "husky install"
  }
 ```
