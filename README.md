@@ -1,6 +1,6 @@
-# Scalebale Architecture
+# Scaleable Architecture
 
-The project is to create a template to be use to build a Scalable Archietecture for `Nextjs + TypeScript` Applications. This is created so that you can enforce the team to work with the same style and Best practice.
+The project is to create a template to be use to build a Scalable Archietecture for `Nextjs + TypeScript` Applications. This is created so that you can enforce the team to work with the same style and Best practice. A documentation of the Tutorial Video by Alex Eagleson [youtube](https://www.youtube.com/watch?v=Iu5aZDqZt8E&t=1172s)
 
 # STEP 1: SETTING UP ENVIRONMENT
 
@@ -38,8 +38,8 @@ Lastly run `npm run lint` to check for linting errors.
 
 You can configure your prettier base on your team's preference. It would ensure you have the same formatting like tabWidth, semiColon(Option), trailingComma, singleQuotes/doubleQuotes check [pretteir docs](https://prettier.io/docs/en/options.html) for more options
 
-- Add `.prettierrc` file in your root project directory and options base on your preferrence.
-- Add `.prettierignore` file in your root project directory to ignore those file you don't want prettier to format; example node_modules, /dist folder. etc.
+- Add `.prettierrc` file in your project root directory and options base on your preferrence.
+- Add `.prettierignore` file in your project root directory to ignore those file you don't want prettier to format; example node_modules, /dist folder. etc.
 
 Lastly, run `npm run prettier` or `yarn prettier` to format your project
 
@@ -68,3 +68,90 @@ Git hooks when set up correctly, will run some script that most succeed before i
    "prepare": "husky install"
  }
 ```
+
+## CONFIGURING COMMIT MESSAGE
+
+- Install @commitlint/config-conventional @commitlint/cli as a dev dependency. Read more [here](https://www.npmjs.com/package/@commitlint/config-conventional).
+- Run this command to `install npm install --save-dev @commitlint/config-conventional @commitlint/cli`
+
+- Create a commitlint.config.js file in your project root directory and add the following configuration (you can modify the configuration to your needs) Read more [here](https://commitlint.js.org/#/guides-local-setup?id=install-commitlint)
+
+```
+// build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+// ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+// docs: Documentation only changes
+// feat: A new feature
+// fix: A bug fix
+// perf: A code change that improves performance
+// refactor: A code change that neither fixes a bug nor adds a feature
+// style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+// test: Adding missing tests or correcting existing tests
+
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'body-leading-blank': [1, 'always'],
+    'body-max-line-length': [2, 'always', 100],
+    'footer-leading-blank': [1, 'always'],
+    'footer-max-line-length': [2, 'always', 100],
+    'header-max-length': [2, 'always', 100],
+    'scope-case': [2, 'always', 'lower-case'],
+    'subject-case': [
+      2,
+      'never',
+      ['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+    ],
+    'subject-empty': [2, 'never'],
+    'subject-full-stop': [2, 'never', '.'],
+    'type-case': [2, 'always', 'lower-case'],
+    'type-empty': [2, 'never'],
+    'type-enum': [
+      2,
+      'always',
+      [
+        'build',
+        'chore',
+        'ci',
+        'docs',
+        'feat',
+        'fix',
+        'perf',
+        'refactor',
+        'revert',
+        'style',
+        'test',
+        'translation',
+        'security',
+        'changeset',
+      ],
+    ],
+  },
+};
+
+```
+
+- Run `npx husky add .husky/commit-msg`. Replace undefined with `npx --no -- commitlint --edit ${1}`
+- The next commit would require you follow the convention else it would fail.
+  `git commit -m "foo: this will fail` would fail, because foo is not in type enum array
+- Example `git commit -m "chore: lint on commitmsg` would pass because it follows the convention
+
+# STEP 6: VS Code
+
+- Add a .vscode file in your project root directory and create a settings.json file.
+- Add your desire settings in settings.json file; Example below
+
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+}
+```
+
+- Add launch.json file to add debugging script; client side, server side and Fullstack debugging script.
+- Click on VS code debugger to debug for either client side, server side and Fullstack, then click play
+
+# STEP 7: STORYBOOK
