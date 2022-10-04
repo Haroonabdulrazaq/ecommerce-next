@@ -58,14 +58,14 @@ Git hooks when set up correctly, will run some script that most succeed before i
 
   At this stage your script should look like this
 
-  <code> 
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prettier": "prettier --write .",
-    "pre-commit": "lint-staged",
-    "prepare": "husky install"
-  }
-  </code>
+```
+ "scripts": {
+   "dev": "next dev",
+   "build": "next build",
+   "start": "next start",
+   "lint": "next lint",
+   "prettier": "prettier --write .",
+   "pre-commit": "lint-staged",
+   "prepare": "husky install"
+ }
+```
