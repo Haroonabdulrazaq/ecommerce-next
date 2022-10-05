@@ -1,4 +1,4 @@
-# Scaleable Architecture
+# Scaleable Archietecture
 
 The project is to create a template to be use to build a Scalable Archietecture for `Nextjs + TypeScript` Applications. This is created so that you can enforce the team to work with the same style and Best practice. A documentation of the Tutorial Video by Alex Eagleson [youtube](https://www.youtube.com/watch?v=Iu5aZDqZt8E&t=1172s)
 
@@ -155,3 +155,5 @@ module.exports = {
 - Click on VS code debugger to debug for either client side, server side and Fullstack, then click play
 
 # STEP 7: STORYBOOK
+
+- Install stporybook using `npx sb init --builder webpack5`
