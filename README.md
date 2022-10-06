@@ -156,4 +156,8 @@ module.exports = {
 
 # STEP 7: STORYBOOK
 
-- Install stporybook using `npx sb init --builder webpack5`
+- Install storybook using `npx sb init --builder webpack5`
+- Add resolutions to package.json to make sure it uses Webpack5
+- Change stories from it default to `stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],`
+- Tell storybook where our static asset is `staticDirs: ['../public'],`
+- We need to include this in preview so that Stroybook understand how Nextjs handle images compnents
